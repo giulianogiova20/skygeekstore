@@ -1,9 +1,7 @@
 import NavBar from "./components/NavBar.js"
-import 'bootstrap/dist/css/bootstrap.min.css'
 import "./header.css"
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import {Row, Col, Container} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Header = () => {
 return (

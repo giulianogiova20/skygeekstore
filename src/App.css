@@ -37,4 +37,11 @@
   }
 }
 
+.body--style{
+  padding: 80px 0 0 80px;
+  background: linear-gradient(to bottom right, cyan, magenta);
+  -webkit-background-clip: text;
+  color: transparent; 
+}
+
 

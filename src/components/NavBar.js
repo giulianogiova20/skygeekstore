@@ -1,7 +1,7 @@
 import Nav from 'react-bootstrap/Nav' 
-import { IoCartOutline } from "react-icons/io5";
+import CartWidget from './CartWidget'
 
-const navbar = () => {
+const Navbar = () => {
     return (
         <Nav justify variant="tabs" defaultActiveKey="/home">
             <Nav.Item>
@@ -14,10 +14,10 @@ const navbar = () => {
                 <Nav.Link eventKey="link-2">Us</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey="link-3"><IoCartOutline/></Nav.Link>
+                <Nav.Link eventKey="link-3"><CartWidget/></Nav.Link>
             </Nav.Item>
         </Nav>
     )
 }
 
-export default navbar
+export default Navbar
