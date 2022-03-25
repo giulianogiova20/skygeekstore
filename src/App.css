@@ -38,10 +38,14 @@
 }
 
 .body--style{
-  padding: 80px 0 0 80px;
+  padding: 40px 0 0 120px;
   background: linear-gradient(to bottom right, cyan, magenta);
   -webkit-background-clip: text;
   color: transparent; 
+}
+
+.item--card{
+  margin: 50px 0 50px 120px;
 }
 
 

@@ -1,16 +1,19 @@
-import NavBar from "./components/NavBar.js"
+import NavBar from "./components/NavBar.jsx"
 import "./header.css"
 import {Row, Col, Container} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const Header = () => {
 return (
-    <Container>
+  <>
+  <Container>
     <Row>
       <Col><h1>SKY Geek Store</h1></Col>
       <Col><NavBar/></Col>
     </Row>
-  </Container>       
+    </Container>
+  </>
+           
 )
 }
 
