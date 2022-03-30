@@ -45,7 +45,15 @@
 }
 
 .item--card{
-  margin: 50px 0 50px 120px;
+  margin: 50px 0 50px 40px;
+}
+
+.text-magenta{
+  color: rgb(245, 21, 245);
+}
+
+.color-magenta{
+  color: rgb(245, 21, 245);
 }
 
 
