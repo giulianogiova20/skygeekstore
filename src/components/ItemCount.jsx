@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 import {Button} from 'react-bootstrap'
 
 
-const ItemCount = ({stock,onAdd}) =>{
+const ItemCount = ({stock,price,onAdd}) =>{
 
     const [counterItem, setCounterItem] = useState(1);
        
@@ -52,26 +52,18 @@ const ItemCount = ({stock,onAdd}) =>{
         }
     }
 
-    const Reset = () =>{
-        setCounterItem(1)
-    }
-
     return (
             <>
             {
                 stock > 0
             ?
             <>  
-                <div className='d-flex justify-content-evenly text-magenta'>
-                    <Button variant='outline-info color-magenta' onClick={itemRemove}>-</Button>
-                    {counterItem}
-                    <Button variant="outline-info color-magenta" onClick={itemAdd}>+</Button>
-                </div>
-                <div className='d-flex justify-content-center'>
-                    <Button variant="outline-info color-magenta" style={{ width: '65%' }} onClick={onAddCart}>Add To Cart</Button>                    
-                </div>
-                <div className='d-flex justify-content-center'>
-                    <Button variant="outline-info color-magenta" style={{ width: '65%' }} onClick={Reset}>Reset</Button>                    
+                <div className='card-detail-button'>
+                    <a>${price}</a>
+                    <a onClick={onAddCart}>ADD TO CART</a>
+                    <a  onClick={itemRemove}>-</a>
+                    <a>{counterItem}</a>
+                    <a onClick={itemAdd}>+</a>
                 </div>
             </>
             :

@@ -5,7 +5,7 @@ import Loader from './Loader'
 const ItemList = ({productos}) => { 
 
     return (
-        <div className="item--render">
+        <div className="item--render d-flex">
             {
                 productos.length > 0 ?
                     productos.map((card) => (

@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%;
+    height: 100vh; */
+    padding: 0 0 40px 40px;
+  }
+  
+  .outer {
+    position: relative;
+    background: linear-gradient(to bottom right, cyan, magenta);
+    height: 350px;
+    width: 550px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+  }
+  
+  .card-detail-img {
+    position: absolute;
+    top: 30px;
+    width: 200px;
+    right: 10px;
+    z-index: 0;
+    animation-delay: 0.5s;
+    border-radius: 10px;
+  }
+  
+  .card-detail-content {
+    animation-delay: 0.3s;
+    position: absolute;
+    left: 20px;
+    z-index: 3;
+  }
+  
+  .card-detail-h1 {
+    color: white;
+  }
+  
+  .card-detail-p {
+    width: 280px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: white;
+    margin: 20px 0;
+    
+  }
+  
+  .card-detail-bg {
+    display: inline-block;
+    color: #fff;
+    background: cornflowerblue;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: .7em;
+  }
+  .card-detail-button {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 10px;
+    
+    
+    
+  }
+  
+  .card-detail-button a {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    font-size: 11px;
+    color: #111;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid white;
+    font-weight: bold;
+    
+    
+  }
+  
+  .card-detail-button a:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 0%;
+    background: #111;
+    height: 100%;
+    z-index: -1;
+    transition: width 0.3s ease-in-out;
+    transform: skew(-25deg);
+    transform-origin: right;
+  }
+  
+  .card-detail-button a:hover:after {
+    width: 150%;
+    left: -10px;
+    transform-origin: left;
+    
+  }
+  
+  .card-detail-button a:hover {
+    color: #fff;
+    transition: all 0.5s ease;
+  }
+  
+  
+  .card-detail-button a:nth-of-type(1) {
+    border-radius: 50px 0 0 50px;
+    border-right: none;
+  }
+  
+  .card-detail-button a:nth-of-type(2) {
+    border-radius: 0px 50px 50px 0;
+  }
+
+
+  .card-detail-button a:nth-of-type(3) {
+    border-radius: 50px 0 0 50px;
+  }
+  
+  .card-detail-button a:nth-of-type(4) {
+    border-right: none;
+    border-left: none;
+  }
+
+  .card-detail-button a:nth-of-type(5) {
+    border-radius: 0px 50px 50px 0;
+  }
+
+  
+  .card-detail-cart-icon {
+    padding-right: 8px;
+    
+  }
+  
+  .card-detail-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }

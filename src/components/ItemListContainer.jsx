@@ -22,7 +22,7 @@ const InitialProducts = [
         price: 12,
         stock: 15,
         id: 3,
-        img: "https://m.media-amazon.com/images/I/71uomtHZd9L._AC_SY879_.jpg",
+        img: "https://m.media-amazon.com/images/I/71X5snD3GAL._AC_SX569_.jpg",
     },
 ]
 

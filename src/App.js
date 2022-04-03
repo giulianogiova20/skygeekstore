@@ -2,7 +2,7 @@ import Header from "./Header.js"
 import 'bootstrap/dist/css/bootstrap.css'
 import  "./App.css"
 import ItemListContainer from "./components/ItemListContainer.jsx"
-import ItemCount from "./components/ItemCount.jsx"
+import ItemDetailList from './components/ItemDetailList';
 
 function App() {
   const greeting = "We are SKY, the number one geek store in Atlanta."
@@ -12,6 +12,7 @@ function App() {
     <header><Header/></header>
     <body>
       <ItemListContainer greeting={greeting} userName={userName} />
+      <ItemDetailList />
     </body>
     </>
   )
