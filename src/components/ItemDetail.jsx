@@ -1,6 +1,8 @@
+import React from "react";
 import ItemCount from "./ItemCount"
 import swal from 'sweetalert';
-import "../carddetail.css"
+import "../css/carddetail.css"
+
 
 const onAdd = (counterItem) =>{
     swal({
@@ -14,11 +16,11 @@ const ItemDetail = ({itemDetail}) => {
 
     return (
             <>
-            <div className="wrapper d-flex justify-content-start">
+            <div className="wrapper d-flex justify-content-center mt-4">
                 <div className="outer">
                     <div className="card-detail-content animated fadeInLeft">
                     <h1 className="card-detail-h1">{itemDetail.name}</h1>
-                    <span className="bg animated fadeInDown">stock: {itemDetail.stock}</span>
+                    <span className="bg animated fadeInDown card-detail-p">stock: {itemDetail.stock}</span>
                     <p className="card-detail-p">{itemDetail.description}</p>
                     
                     <ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>

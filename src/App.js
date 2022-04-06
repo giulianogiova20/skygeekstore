@@ -1,19 +1,52 @@
-import Header from "./Header.js"
-import 'bootstrap/dist/css/bootstrap.css'
+import React from "react";
+import {Routes, Route} from 'react-router-dom'
+
+//Styles
 import  "./App.css"
+import "./css/header.css"
+
+
+//Components
 import ItemListContainer from "./components/ItemListContainer.jsx"
-import ItemDetailList from './components/ItemDetailList';
+import ItemDetailContainer from './components/ItemDetailContainer.jsx';
+import NavBar from "./components/NavBar";
+import Cart from './components/Cart'
+import Error from './components/Error'
+
+//Bootstrap
+import 'bootstrap/dist/css/bootstrap.css'
 
 function App() {
+
   const greeting = "We are SKY, the number one geek store in Atlanta."
   const userName = "John Doe"
+
+
   return (
     <>
-    <header><Header/></header>
-    <body>
-      <ItemListContainer greeting={greeting} userName={userName} />
-      <ItemDetailList />
-    </body>
+        <NavBar />
+        <Routes>
+          <Route
+            path='/'
+            element={<ItemListContainer greeting={greeting} userName={userName} />}
+          />
+          <Route
+            path='/category/:category'
+            element={<ItemListContainer greeting={greeting} userName={userName} />}
+          />
+          <Route
+            path='/item/:id'
+            element={<ItemDetailContainer />}
+          />
+          <Route
+            path='/cart'
+            element={<Cart />}
+          />
+          <Route 
+            path='*'
+            element={<Error />}
+          />
+        </Routes>
     </>
   )
 }

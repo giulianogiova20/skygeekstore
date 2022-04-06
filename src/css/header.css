@@ -1,0 +1,43 @@
+.header{
+    background: linear-gradient(to bottom right,magenta, cyan);
+  }
+
+.header a {
+    color: white !important;
+}
+
+.header a:hover {
+    color: magenta !important;
+}
+
+.header a:hover.active {
+    color: magenta !important;
+}
+
+.header .dropdown-menu a {
+    color: magenta !important;
+}
+
+.header .dropdown-menu a:hover {
+    color: magenta !important;
+}
+
+.header .dropdown-menu a.active {
+    background-color: cyan !important;
+}
+
+.header .dropdown-menu a:hover {
+    background-color: rgb(0, 229, 255) !important;
+}
+
+.header .dropdown-menu a:focus {
+    background-color: rgb(0, 229, 255) !important;
+}
+
+.header .dropdown-menu a:hover.active {
+    color: magenta !important;
+}
+
+.header h1 {
+    color: white;
+}

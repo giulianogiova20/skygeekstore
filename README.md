@@ -1,3 +1,10 @@
+###################################################################################################
+#                                                                                                 #
+#  E-commerce project based on REACT - by Giuliano Giovanelli for React JS course on CoderHouse   #
+#                                                                                                 #
+###################################################################################################
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

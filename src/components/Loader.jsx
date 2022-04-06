@@ -5,8 +5,10 @@ const Loader = () => {
 
     return (
         <>
-        <Spinner animation="border" variant="info" />
-        <p>Loading...</p>
+        <div className="d-flex mt-5 justify-content-center text-info">
+            <Spinner animation="border" variant="info"/>
+            <p>Loading...</p>
+        </div>
         </>
     )
 }

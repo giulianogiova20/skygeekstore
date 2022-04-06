@@ -1,17 +1,16 @@
+import React from "react";
 import Item from './Item'
 import Loader from './Loader'
 
 
-const ItemList = ({productos}) => { 
+const ItemList = ({products}) => { 
 
     return (
-        <div className="item--render d-flex">
+        <div className="d-flex flex-wrap justify-content-center">
             {
-                productos.length > 0 ?
-                    productos.map((card) => (
-                        <div key={card.id}>
-                            <Item item={card}/>
-                        </div>
+                products.length > 0 ?
+                    products.map((card) => (
+                        <Item item={card} key={card.id}/>  
                     )) : (
                         <Loader />
                     )

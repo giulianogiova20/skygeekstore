@@ -38,17 +38,9 @@
 }
 
 .body--style{
-  padding: 40px 0 0 120px;
   background: linear-gradient(to bottom right, cyan, magenta);
   -webkit-background-clip: text;
   color: transparent; 
-}
-
-.item--card{
-  height: 550px;
-  margin: 50px 0 50px 40px;
-  background: linear-gradient(to bottom right, cyan, magenta);
-  border-radius: 20px;
 }
 
 .text-magenta{
@@ -58,11 +50,4 @@
 .color-magenta{
   color: rgb(245, 21, 245);
 }
-
-.card-img-top {
-  border-radius: 20px;
-  padding: 5px;
-  height: 420px;
-}
-
 

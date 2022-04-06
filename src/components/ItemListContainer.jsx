@@ -1,59 +1,67 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import ItemList from "./ItemList";
-
-
-const InitialProducts = [
-    {
-        name: "The Mandalorian Figure",
-        price: 14,
-        stock: 7,
-        id: 1,
-        img: "https://m.media-amazon.com/images/I/71ylTgu1ysL._AC_SX569_.jpg",
-    },
-    {
-        name: "Palpatine Figure",
-        price: 20,
-        stock: 2,
-        id: 2,
-        img: "https://m.media-amazon.com/images/I/61XAmUM3l0L._AC_SX569_.jpg",
-    },
-    {
-        name: "Stormtrooper Figure",
-        price: 12,
-        stock: 15,
-        id: 3,
-        img: "https://m.media-amazon.com/images/I/71X5snD3GAL._AC_SX569_.jpg",
-    },
-]
-
+import Loader from "./Loader"
+import { Container } from 'react-bootstrap'
+import { useParams } from "react-router-dom"
 
 
 const ItemListContainer = ({ greeting, userName }) => {
 
-    const promesa = new Promise((res, rej) => {
-        setTimeout(() => {
-          res(InitialProducts);
-        }, 2000);
-      })
 
+    const apiUrl = "https://mocki.io/v1/a4191af6-4e16-498e-9191-eb1aab274ca9"
     const [products, setProducts] = useState([])
-    
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(false)
+    const { category } = useParams()
+
+    const getItems = async () => {
+        try {
+            const response = await fetch(apiUrl)
+            const products = await response.json()
+
+            if (category) {
+                const filterProducts = products.filter(
+                    (element) => element.category === category
+                )
+                setProducts(filterProducts)
+            } else {
+                setProducts(products)
+            }
+        }
+        catch {
+            setError(true)
+        }
+        finally {
+            setTimeout(() => {
+                setLoading(false)
+              }, 1000)
+        }
+    }
+
     useEffect(() => {
-        promesa.then((products) => {
-            setProducts(products)
-        }).catch(() => {
-            console.log("Something went wrong")
-        })
-    }, [])
+        getItems()
+    }, [category])
     
 
     return (
         <>
-            <div className='body--style'>
+            <Container className="body--style">
                 <h2>Welcome, {userName}!</h2>
                 <h3>{greeting}</h3>
-                <ItemList productos= {products}/>
-            </div>
+            </Container>
+            <Container>
+                {
+                    loading ? (
+                        <Loader />
+                    ) : (
+                        error ? (
+                            <h1>We're sorry, something went wrong...</h1>
+                        ) : (
+                            <ItemList products={products} />
+                        )
+                    )
+                }
+            </Container>
         </>
     )
 }

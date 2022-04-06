@@ -15,7 +15,7 @@
     position: relative;
     background: linear-gradient(to bottom right, cyan, magenta);
     height: 350px;
-    width: 550px;
+    width: 600px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -64,72 +64,51 @@
     width: fit-content;
     height: fit-content;
     margin-top: 10px;
-    
+    background: transparent;
     
     
   }
   
-  .card-detail-button a {
+  .card-detail-button button {
     display: inline-block;
     overflow: hidden;
     position: relative;
     font-size: 11px;
-    color: #111;
+    color: white;
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid white;
     font-weight: bold;
-    
-    
-  }
-  
-  .card-detail-button a:after{
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -10px;
-    width: 0%;
-    background: #111;
-    height: 100%;
-    z-index: -1;
-    transition: width 0.3s ease-in-out;
-    transform: skew(-25deg);
-    transform-origin: right;
-  }
-  
-  .card-detail-button a:hover:after {
-    width: 150%;
-    left: -10px;
-    transform-origin: left;
+    background: transparent;
     
   }
-  
-  .card-detail-button a:hover {
-    color: #fff;
+    
+  .card-detail-button button:hover {  
+    color: black;
     transition: all 0.5s ease;
   }
   
   
-  .card-detail-button a:nth-of-type(1) {
+  .card-detail-button button:nth-of-type(1) {
     border-radius: 50px 0 0 50px;
     border-right: none;
   }
   
-  .card-detail-button a:nth-of-type(2) {
+  .card-detail-button button:nth-of-type(2) {
     border-radius: 0px 50px 50px 0;
   }
 
 
-  .card-detail-button a:nth-of-type(3) {
+  .card-detail-button button:nth-of-type(3) {
     border-radius: 50px 0 0 50px;
   }
   
-  .card-detail-button a:nth-of-type(4) {
+  .card-detail-button button:nth-of-type(4) {
     border-right: none;
     border-left: none;
   }
 
-  .card-detail-button a:nth-of-type(5) {
+  .card-detail-button button:nth-of-type(5) {
     border-radius: 0px 50px 50px 0;
   }
 
