@@ -10,12 +10,13 @@ const ItemDetail = ({itemDetail}) => {
 
     const [buy, setBuy] = useState(false)
 
-    const onAdd = () =>{
+    const onAdd = (counterItem) =>{
         setBuy(true)
         swal({
         text: 'Added to Cart',
         icon: 'success'
-    })
+        })
+        console.log(`User added ${counterItem} items`)
     }
 
     return (

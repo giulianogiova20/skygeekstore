@@ -47,7 +47,7 @@ const ItemCount = ({stock,price,onAdd}) =>{
 
     const onAddCart = () => {
         if (counterItem > 0) {
-            onAdd()
+            onAdd(counterItem)
         }
     }
 
