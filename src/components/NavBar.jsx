@@ -30,7 +30,7 @@ const NavBar = () => {
                                                 )
                                             })}
                                         </NavDropdown>
-                                        <Nav.Link as={NavLink} to="/cart">About</Nav.Link>
+                                        <Nav.Link as={NavLink} to="/">About</Nav.Link>
                                         <Nav.Link as={NavLink} to="/cart"><CartWidget /></Nav.Link>
                                     </Nav>
                                 </Navbar.Collapse>

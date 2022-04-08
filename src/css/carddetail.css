@@ -65,8 +65,6 @@
     height: fit-content;
     margin-top: 10px;
     background: transparent;
-    
-    
   }
   
   .card-detail-button button {
@@ -79,9 +77,28 @@
     padding: 10px 15px;
     border: 1px solid white;
     font-weight: bold;
-    background: transparent;
-    
+    background: transparent;  
   }
+
+  .card-detail-buy{
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    font-size: 11px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid white;
+    font-weight: bold;
+    background: transparent; 
+    border-radius: 50px 50px 50px 50px;
+  }
+
+  .card-detail-buy:hover {  
+    color: black;
+    transition: all 0.5s ease;
+  }
+  
     
   .card-detail-button button:hover {  
     color: black;
