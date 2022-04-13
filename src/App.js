@@ -1,5 +1,7 @@
 import React from "react";
 import {Routes, Route} from 'react-router-dom'
+import CustomProvider from "./contexts/CartContext";
+
 
 //Styles
 import  "./App.css"
@@ -24,29 +26,31 @@ function App() {
 
   return (
     <>
-        <NavBar />
-        <Routes>
-          <Route
-            path='/'
-            element={<ItemListContainer greeting={greeting} userName={userName} />}
-          />
-          <Route
-            path='/category/:category'
-            element={<ItemListContainer greeting={greeting} userName={userName} />}
-          />
-          <Route
-            path='/item/:id'
-            element={<ItemDetailContainer />}
-          />
-          <Route
-            path='/cart'
-            element={<Cart />}
-          />
-          <Route 
-            path='*'
-            element={<Error />}
-          />
-        </Routes>
+        <CustomProvider>
+          <NavBar />
+          <Routes>
+            <Route
+              path='/'
+              element={<ItemListContainer greeting={greeting} userName={userName} />}
+            />
+            <Route
+              path='/category/:category'
+              element={<ItemListContainer greeting={greeting} userName={userName} />}
+            />
+            <Route
+              path='/item/:id'
+              element={<ItemDetailContainer />}
+            />
+            <Route
+              path='/cart'
+              element={<Cart />}
+            />
+            <Route
+              path='*'
+              element={<Error />}
+            />
+          </Routes>
+        </CustomProvider>
     </>
   )
 }

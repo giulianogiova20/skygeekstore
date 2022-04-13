@@ -1,52 +1,58 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import ItemCount from "./ItemCount"
 import swal from 'sweetalert';
 import "../css/carddetail.css"
-import { Link } from "react-router-dom";
+import { context } from "../contexts/CartContext";
+import { Link } from "react-router-dom"
 
 
 
 const ItemDetail = ({itemDetail}) => {
 
-    const [buy, setBuy] = useState(false)
+    const [CartHandler, setCartHandler] = useState(false)
+    const [itemQuantity, setItemQuantity] = useState(0)
+    const { addItem, removeItem } = useContext(context)
 
     const onAdd = (counterItem) =>{
-        setBuy(true)
+        setCartHandler(true) //Aparece el boton "CHECKOUT"
         swal({
         text: 'Added to Cart',
         icon: 'success'
         })
-        console.log(`User added ${counterItem} items`)
+        setItemQuantity(counterItem)
+    }
+
+    const checkout = () => {
+        addItem(itemDetail, itemQuantity) //El item recien se agrega al carrito realmente cuando el user le da a checkout
+    }
+
+    const deleteItem = () => {
+        removeItem(itemDetail) //El item se remueve del carrito
+        setCartHandler(false) //Desaparece el boton "DELETE FROM CART"
     }
 
     return (
-            <>
-            {
-            buy ? (
-                <div className="wrapper d-flex justify-content-center mt-4">
-                    <div className="outer ">
-                        <div className="card-detail-content animated fadeInLeft">
-                            <h1 className="card-detail-h1">{itemDetail.name}</h1>
-                            <Link to="/cart"><button className="card-detail-buy">BUY</button></Link>
-                        </div>
-                        <img src={itemDetail.img} className="card-detail-img" alt="Palpatine Figure" /> 
-                    </div>
-                </div>
-            ) : (
+            <>            
                 <div className="wrapper d-flex justify-content-center mt-4">
                     <div className="outer">
                         <div className="card-detail-content animated fadeInLeft">
-                        <h1 className="card-detail-h1">{itemDetail.name}</h1>
-                        <span className="bg animated fadeInDown card-detail-p">stock: {itemDetail.stock}</span>
-                        <p className="card-detail-p">{itemDetail.description}</p>
-                        <ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>
+                            <h1 className="card-detail-h1">{itemDetail.name}</h1>
+                            <span className="bg animated fadeInDown card-detail-p">stock: {itemDetail.stock}</span>
+                            <p className="card-detail-p">{itemDetail.description}</p>
+                            { 
+                            CartHandler ? 
+                            (<>
+                            <ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>
+                            <Link to={`/cart`}><button className="card-detail-buy" onClick={checkout}>CHECKOUT</button></Link>
+                            <button className="card-detail-buy mt-3" onClick={deleteItem}>DELETE FROM CART</button>
+                            </>
+                            ) 
+                                : (<ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>) 
+                            }
                         </div>
                         <img src={itemDetail.img} className="card-detail-img" alt="Palpatine Figure" /> 
                     </div>
-                </div>  
-            )
-            
-            }            
+                </div>             
             </>
 
     )
