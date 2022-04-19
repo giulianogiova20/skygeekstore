@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 
 export const context = createContext()
 const { Provider } = context
@@ -6,6 +6,7 @@ const { Provider } = context
 const CustomProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([])
     const [cartQuantity, setCartQuantity] = useState(0)
+    
 
     const addItem = (itemDetail, itemQuantity) => {
 
@@ -14,9 +15,9 @@ const CustomProvider = ({ children }) => {
             const itemAdded = cartItems.find((element) => element.id === itemDetail.id)
             itemAdded.qty = itemAdded.qty + itemQuantity 
             setCartQuantity(cartQuantity + itemQuantity)
-            console.log(`Now you have ${itemAdded.qty} items of "${itemAdded.name}" in cart`)
+           
         } else {
-            console.log(`You have ${itemQuantity} items of "${itemDetail.name}" in cart`)
+            
             const newCartItem =
             {
                 name: itemDetail.name,
@@ -26,6 +27,7 @@ const CustomProvider = ({ children }) => {
                 qty: itemQuantity
             }
             setCartItems([...cartItems, newCartItem])
+            setCartQuantity(cartQuantity + itemQuantity)
         }
     }
 
@@ -33,22 +35,32 @@ const CustomProvider = ({ children }) => {
         return cartItems.some((element) => element.id === itemDetail.id)
     }
 
-    const removeItem = (itemDetail) => {
+    const totalCost = () => {
+        return cartItems.reduce((total, item) => total = total + (item.price * item.qty), 0)
+    }
+
+    const removeItem = (id) => {
         const updatedCart = cartItems.filter(
-            (element) => element.id !== itemDetail.id)
-        setCartItems(updatedCart)
-        console.log(`Item "${itemDetail.name}" Deleted from Cart`)   
+            (element) => element.id !== id)
+        setCartItems(updatedCart)           
     }
 
     const clear = () => {
         setCartItems([])
     }
 
-    console.log("Cart is:")
-    console.log(cartItems)
+    useEffect(() => {
+        if (cartItems.length > 0){
+            let quantity = 0
+            cartItems.forEach(item => quantity = quantity + item.qty)
+            setCartQuantity(quantity)
+        } else {
+            setCartQuantity(0)
+        }
+      }, [cartItems])
 
     return (
-        <Provider value={{ cartItems, addItem, removeItem, clear }}>
+        <Provider value={{ cartItems, cartQuantity, addItem, removeItem, clear, totalCost }}>
             {children}
         </Provider>
     )

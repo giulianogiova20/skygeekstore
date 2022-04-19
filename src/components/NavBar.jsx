@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartWidget from './CartWidget'
-import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Container, Badge } from 'react-bootstrap'
 import { NavLink} from "react-router-dom";
+import { context } from "../contexts/CartContext";
 
 const NavBar = () => {
+
+    const { cartQuantity } = useContext(context)
 
     const categories = [
         { name: "Figures", route: "category/figure", id: 1 },
@@ -31,7 +34,10 @@ const NavBar = () => {
                                             })}
                                         </NavDropdown>
                                         <Nav.Link as={NavLink} to="/">About</Nav.Link>
-                                        <Nav.Link as={NavLink} to="/cart"><CartWidget /></Nav.Link>
+                                        <Nav.Link as={NavLink} to="/cart">
+                                            <CartWidget />
+                                            { cartQuantity !== 0 ? (<Badge pill bg="dark">{cartQuantity}</Badge>) : null }
+                                        </Nav.Link>
                                     </Nav>
                                 </Navbar.Collapse>
                     </Navbar>

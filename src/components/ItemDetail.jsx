@@ -10,7 +10,6 @@ import { Link } from "react-router-dom"
 const ItemDetail = ({itemDetail}) => {
 
     const [CartHandler, setCartHandler] = useState(false)
-    const [itemQuantity, setItemQuantity] = useState(0)
     const { addItem, removeItem } = useContext(context)
 
     const onAdd = (counterItem) =>{
@@ -19,15 +18,12 @@ const ItemDetail = ({itemDetail}) => {
         text: 'Added to Cart',
         icon: 'success'
         })
-        setItemQuantity(counterItem)
+        addItem(itemDetail, counterItem) //Envío al CartContext el item y la cantidad que tengo que agregar al carrito
     }
 
-    const checkout = () => {
-        addItem(itemDetail, itemQuantity) //El item recien se agrega al carrito realmente cuando el user le da a checkout
-    }
 
     const deleteItem = () => {
-        removeItem(itemDetail) //El item se remueve del carrito
+        removeItem(itemDetail.id) //El item se remueve del carrito
         setCartHandler(false) //Desaparece el boton "DELETE FROM CART"
     }
 
@@ -43,7 +39,7 @@ const ItemDetail = ({itemDetail}) => {
                             CartHandler ? 
                             (<>
                             <ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>
-                            <Link to={`/cart`}><button className="card-detail-buy" onClick={checkout}>CHECKOUT</button></Link>
+                            <Link to={`/cart`}><button className="card-detail-buy">CHECKOUT</button></Link>
                             <button className="card-detail-buy mt-3" onClick={deleteItem}>DELETE FROM CART</button>
                             </>
                             ) 
@@ -54,7 +50,6 @@ const ItemDetail = ({itemDetail}) => {
                     </div>
                 </div>             
             </>
-
     )
 
 }
