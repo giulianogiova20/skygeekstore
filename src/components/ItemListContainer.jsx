@@ -3,39 +3,86 @@ import ItemList from "./ItemList";
 import Loader from "./Loader"
 import { Container } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
+import { db } from "../firebase/firebase"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
 
 const ItemListContainer = ({ greeting, userName }) => {
 
-
-    const apiUrl = "https://mocki.io/v1/a4191af6-4e16-498e-9191-eb1aab274ca9"
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const { category } = useParams()
 
     const getItems = async () => {
-        try {
-            const response = await fetch(apiUrl)
-            const products = await response.json()
 
-            if (category) {
-                const filterProducts = products.filter(
-                    (element) => element.category === category
-                )
-                setProducts(filterProducts)
-            } else {
-                setProducts(products)
+        if (category){
+            try {
+                const productsCollection = collection(db, "ItemCollection")
+                const products = query(productsCollection, where("category", "==", `${category}`))
+                getDocs(products)
+                .then((result)=> {
+                    const docs = result.docs
+                    if (docs.length>0) {
+                        const lista = docs.map( producto => {
+                            const id = producto.id
+                            const product = {
+                                id,
+                                ...producto.data()
+                            }
+                            return product
+                        })
+                        console.log(lista)
+                        setProducts(lista)
+                    } 
+                    else { console.log("No products")}
+          
+            })
+            } 
+            catch {
+                setError(true)
+            } 
+            finally {
+                setTimeout(() => {
+                    setLoading(false)
+                  }, 1000)
             }
         }
-        catch {
-            setError(true)
+
+        else {
+            try {
+                const productsCollection = collection(db, "ItemCollection")
+                getDocs(productsCollection)
+                .then((result)=> {
+                    const docs = result.docs
+                    if (docs.length>0) {
+                        const lista = docs.map( producto => {
+                            const id = producto.id
+                            const product = {
+                                id,
+                                ...producto.data()
+                            }
+                            return product
+                        })
+                        console.log(lista)
+                        setProducts(lista)
+                    } 
+                    else { console.log("No products")}
+          
+            })
+            } 
+            catch {
+                setError(true)
+            } 
+            finally {
+                setTimeout(() => {
+                    setLoading(false)
+                  }, 1000)
+            }
         }
-        finally {
-            setTimeout(() => {
-                setLoading(false)
-              }, 1000)
-        }
+
+
+         
     }
 
     useEffect(() => {

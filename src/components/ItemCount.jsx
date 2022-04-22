@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
+import {Row, Col, Container} from "react-bootstrap"
 
 
 const ItemCount = ({stock,price,onAdd}) =>{
@@ -58,13 +59,17 @@ const ItemCount = ({stock,price,onAdd}) =>{
                 stock > 0
             ?
             <>  
-                <div className='card-detail-button'>
-                    <button>${price}</button>
-                    <button onClick={onAddCart}>ADD TO CART</button>
-                    <button onClick={itemRemove}>-</button>
-                    <button>{counterItem}</button>
-                    <button onClick={itemAdd}>+</button>
-                </div>
+                <Container>
+                    <Row className='card-detail-button'>
+                        <Col md={12} xs={6}>
+                            <button>${price}</button>
+                            <button onClick={onAddCart}>ADD TO CART</button>
+                            <button onClick={itemRemove}>-</button>
+                            <button>{counterItem}</button>
+                            <button onClick={itemAdd}>+</button>
+                        </Col>
+                    </Row>
+                </Container>
             </>
             :
             <div>

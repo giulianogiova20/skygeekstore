@@ -6,7 +6,7 @@ import "../css/cart.css"
 
 const Cart = () => {
 
-    const { cartItems, removeItem, totalCost } = useContext(context)
+    const { cartItems, removeItem, totalCost, clear } = useContext(context)
 
     const deleteItem = (id) => {
        removeItem(id) 
@@ -56,8 +56,9 @@ const Cart = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={8} xs={6}></Col>
-                        <Col md={2} xs={4} className="cart-items d-flex justify-content-center ">
+                        <Col md={5} xs={2}></Col>
+                        <Col md={3} xs={4}><button className="cart-items--clear d-flex justify-content-center" onClick={ ()=> clear() }><h3 className="text-info">Clear all items</h3></button> </Col>
+                        <Col md={2} xs={4} className="cart-items d-flex justify-content-center">
                             <h3 className="text-magenta">Total: $ {totalCost()}</h3>
                         </Col>
                     </Row>

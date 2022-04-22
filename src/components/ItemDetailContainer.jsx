@@ -3,6 +3,8 @@ import ItemDetail from "./ItemDetail";
 import Loader from './Loader'
 import { Container } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
+import { db } from "../firebase/firebase"
+import { collection, doc, getDoc, query, where  } from "firebase/firestore"
 
 
 
@@ -16,17 +18,17 @@ const ItemDetailContainer = () => {
 
     const getItems = async () => {
         try {
-            const response = await fetch(apiUrl)
-            const product = await response.json()
-
-            if (id) {
-                const filterProduct = product.filter(
-                    (element) => element.id.toString() === id
-                )
-                setProducts(filterProduct)
-            } else {
-                console.log("none selected")
-            }
+            const productCollection = doc(db, "ItemCollection", `${id}`)
+            getDoc(productCollection)
+           .then((result) =>{
+               const id = result.id
+               const product = {
+                   id,
+                   ...result.data()
+               }
+               console.log(product)
+               setProducts(product)
+           })
         }
         catch {
             setError(true)
@@ -52,12 +54,9 @@ const ItemDetailContainer = () => {
                     error ? (
                         <h1>We're sorry, something went wrong...</h1>
                     ) : (
-                        product.length > 0 ?
-                         product.map((itemDetail) => (
-                            <ItemDetail itemDetail={itemDetail} key={itemDetail.id} />
-                             )) : console.log("not found")
-                        )       
-                    )
+                        <ItemDetail itemDetail={product} />
+                        )   
+                )
             }
           </Container>
       </>
