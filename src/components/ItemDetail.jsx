@@ -4,7 +4,6 @@ import swal from 'sweetalert';
 import "../css/carddetail.css"
 import { context } from "../contexts/CartContext";
 import { Link } from "react-router-dom"
-import {Row, Col, Container} from "react-bootstrap"
 
 
 

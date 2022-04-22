@@ -32,7 +32,6 @@ const ItemListContainer = ({ greeting, userName }) => {
                             }
                             return product
                         })
-                        console.log(lista)
                         setProducts(lista)
                     } 
                     else { console.log("No products")}
