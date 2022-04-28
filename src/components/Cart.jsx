@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap'
 import { context } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 import "../css/cart.css"
+import {collection, addDoc, serverTimestamp, updateDoc, doc, getDoc } from "firebase/firestore"
+import { db } from "../firebase/firebase"
 
 const Cart = () => {
 
@@ -12,6 +15,60 @@ const Cart = () => {
        removeItem(id) 
     }
 
+    const [BuyerInfo, setBuyerInfo ] = useState({
+        buyerName: "",
+        buyerLastName: "",
+        buyerEmail: ""
+    })
+
+    const formHandler = ((e) =>{
+        setBuyerInfo({
+            ...BuyerInfo,
+            [e.target.name]: e.target.value
+        })
+    }  
+    )
+
+
+    const confirmCheckout = () => {
+        const order = {
+            buyer: {...BuyerInfo},
+            items: cartItems,
+            date: serverTimestamp(),
+            total: totalCost(),
+        }
+
+        const userOrder = collection(db,"OrderCollection")
+        addDoc(userOrder,order)
+        .then( result => {
+            swal({
+                title: 'Purchase done!',
+                text: `
+                Your Order ID: ${result.id}\n
+                Total: $${totalCost()}`,
+                icon: 'success'
+                })
+        } 
+        )
+        .then(
+                cartItems.forEach( element => {
+                    const PurchasedQuantity = element.qty
+                    const updateCollection = doc(db,"ItemCollection", `${element.id}`)
+                    getDoc(updateCollection)
+                    .then( result => {
+                        const updatedStock = result.data().stock - PurchasedQuantity
+                        console.log(updatedStock)
+                        updateDoc(updateCollection, {"stock": updatedStock})
+                    }
+                    )
+                }                  
+            )
+        )
+        
+        clear()
+    }
+
+    
     if (cartItems.length === 0) {
         return (
             <Container>
@@ -60,6 +117,20 @@ const Cart = () => {
                         <Col md={3} xs={4}><button className="cart-items--clear d-flex justify-content-center" onClick={ ()=> clear() }><h3 className="text-info">Clear all items</h3></button> </Col>
                         <Col md={2} xs={4} className="cart-items d-flex justify-content-center">
                             <h3 className="text-magenta">Total: $ {totalCost()}</h3>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={2} xs={0}></Col>
+                        <Col md={5} xs={10}className="d-flex justify-content-center">
+                            <form>
+                                <input className="form-control" value={BuyerInfo.buyerName} onChange={formHandler} required type="text" name="buyerName" placeholder="Name"></input>
+                                <input className="form-control" value={BuyerInfo.buyerLastName} onChange={formHandler} type="text" name="buyerLastName" placeholder="LastName"></input>
+                                <input className="form-control" value={BuyerInfo.buyerEmail} onChange={formHandler} type="email" name="buyerEmail" placeholder="email"></input>
+                                
+                            </form>
+                        </Col>
+                        <Col md={4} xs={8}><button className="cart-items--clear d-flex justify-content-center" onClick={confirmCheckout}>
+                            <h3 className="text-magenta">Confirm Purchase</h3></button>
                         </Col>
                     </Row>
                 </Container>
