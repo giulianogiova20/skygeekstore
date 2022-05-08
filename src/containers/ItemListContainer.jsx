@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from "react";
-import ItemList from "./ItemList";
-import Loader from "./Loader"
+import ItemList from "../containers/ItemList";
+import Loader from "../components/Loader"
 import { Container } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
 import { db } from "../firebase/firebase"
@@ -16,9 +16,10 @@ const ItemListContainer = ({ greeting, userName }) => {
 
     const getItems = async () => {
 
+        const productsCollection = collection(db, "ItemCollection")
+
         if (category){
             try {
-                const productsCollection = collection(db, "ItemCollection")
                 const products = query(productsCollection, where("category", "==", `${category}`))
                 getDocs(products)
                 .then((result)=> {
@@ -35,7 +36,6 @@ const ItemListContainer = ({ greeting, userName }) => {
                         setProducts(lista)
                     } 
                     else { console.log("No products")}
-          
             })
             } 
             catch {
@@ -50,7 +50,6 @@ const ItemListContainer = ({ greeting, userName }) => {
 
         else {
             try {
-                const productsCollection = collection(db, "ItemCollection")
                 getDocs(productsCollection)
                 .then((result)=> {
                     const docs = result.docs
@@ -63,7 +62,6 @@ const ItemListContainer = ({ greeting, userName }) => {
                             }
                             return product
                         })
-                        console.log(lista)
                         setProducts(lista)
                     } 
                     else { console.log("No products")}

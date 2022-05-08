@@ -9,8 +9,8 @@ import "./css/header.css"
 
 
 //Components
-import ItemListContainer from "./components/ItemListContainer.jsx"
-import ItemDetailContainer from './components/ItemDetailContainer.jsx';
+import ItemListContainer from "./containers/ItemListContainer"
+import ItemDetailContainer from './containers/ItemDetailContainer';
 import NavBar from "./components/NavBar";
 import Cart from './components/Cart'
 import Error from './components/Error'

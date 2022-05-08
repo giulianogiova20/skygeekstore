@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import CartWidget from './CartWidget'
-import { Nav, Navbar, NavDropdown, Container, Badge } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
 import { NavLink} from "react-router-dom";
 import { context } from "../contexts/CartContext";
 
@@ -35,8 +35,8 @@ const NavBar = () => {
                                         </NavDropdown>
                                         <Nav.Link as={NavLink} to="/">About</Nav.Link>
                                         <Nav.Link as={NavLink} to="/cart">
-                                            <CartWidget />
-                                            { cartQuantity !== 0 ? (<Badge pill bg="dark">{cartQuantity}</Badge>) : null }
+                                            <CartWidget cartQuantity = {cartQuantity}/>
+                                            
                                         </Nav.Link>
                                     </Nav>
                                 </Navbar.Collapse>

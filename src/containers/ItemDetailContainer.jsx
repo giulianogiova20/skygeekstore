@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail";
-import Loader from './Loader'
+import ItemDetail from "../containers/ItemDetail";
+import Loader from '../components/Loader'
 import { Container } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
 import { db } from "../firebase/firebase"

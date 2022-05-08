@@ -11,7 +11,7 @@ const ItemCount = ({stock,price,onAdd}) =>{
     const itemAdd = () => {
             if(stock === 0){
             swal({
-                title: 'No hay stock disponible',
+                title: 'No stock',
                 icon: 'error'
             });
             setCounterItem(0);
@@ -20,7 +20,7 @@ const ItemCount = ({stock,price,onAdd}) =>{
                 setCounterItem(counterItem + 1);
             }else{
                 swal({
-                    title: 'No puedes superar el stock disponible',
+                    title: 'Can´t exceed the available stock',
                     icon: 'warning'
                 });
             }
@@ -30,7 +30,7 @@ const ItemCount = ({stock,price,onAdd}) =>{
     const itemRemove = () => {
         if(stock === 0){
         swal({
-            title: 'No hay stock disponible',
+            title: 'No stock',
             icon: 'error'
         });
         setCounterItem(0);
@@ -39,7 +39,7 @@ const ItemCount = ({stock,price,onAdd}) =>{
             setCounterItem(counterItem - 1);
         }else{
                 swal({
-                    text: 'No puede añadir menos de 1 producto',
+                    text: 'Can´t add less than 1 product',
                     icon: 'info'
                 });
             }
