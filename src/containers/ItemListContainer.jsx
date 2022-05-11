@@ -1,13 +1,13 @@
 import React, { useEffect, useState} from "react";
 import ItemList from "../containers/ItemList";
 import Loader from "../components/Loader"
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
 import { db } from "../firebase/firebase"
 import { collection, getDocs, query, where } from "firebase/firestore"
 
 
-const ItemListContainer = ({ greeting, userName }) => {
+const ItemListContainer = ({ greeting }) => {
 
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
@@ -89,9 +89,15 @@ const ItemListContainer = ({ greeting, userName }) => {
 
     return (
         <>
-            <Container className="body--style">
-                <h2>Welcome, {userName}!</h2>
-                <h3>{greeting}</h3>
+            <Container className="d-flex greeting justify-content-center">
+                <Col className="justify-content-center">
+                    <Row className="d-flex align-content-center">
+                        <h3 className="greeting1 text-center d-flex align-items-center justify-content-center">N° 1</h3>
+                    </Row>
+                    <Row>
+                        <h3 className="greeting2 text-center d-flex align-items-center justify-content-center">GEEK STORE</h3>
+                    </Row>
+                </Col>
             </Container>
             <Container>
                 {

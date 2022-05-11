@@ -1,9 +1,26 @@
+.card {
+  background: transparent !important;
+}
+
 .item--card{
     width: 320px !important;
     height: 550px;
     margin: 40px 20px 40px 20px;
-    background: linear-gradient(to bottom right, cyan, magenta);
+    padding: 3px;
+    background: transparent !important;
+    border: 1px solid #fff !important;
     border-radius: 20px !important;
+    color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 5px #0ff,
+      0 0 50px #0ff,
+      0 0 140px #0ff;
+      
+    box-shadow: 
+    inset 0 0 10px #fff , 0 0 10px #fff,
+    inset 0 0 25px #0ff , 0 0 25px #0ff;
   }
 
   
@@ -19,8 +36,7 @@
     height: fit-content;
     margin-top: 10px;
     background: transparent;
-    
-    
+      
   }
   
   .card-button button {
@@ -29,25 +45,24 @@
     position: relative;
     font-size: 11px;
     color: white;
-    text-decoration: none;
+    text-shadow:
+      0 0 3px #fff;
     padding: 10px 15px;
     border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 
+    inset 0 0 5px #fff , 0 0 5px #fff,
+    inset 0 0 15px #0ff , 0 0 15px #0ff;
     font-weight: bold;
     background: transparent;
     
   }
     
   .card-button button:hover {  
-    color: black;
+    color: magenta;
     transition: all 0.5s ease;
+    text-shadow:
+    none;
   }
   
-  
-  .card-button button:nth-of-type(1) {
-    border-radius: 50px 0 0 50px;
-  }
-  
-  .card-button a button:nth-of-type(1) {
-    border-radius: 0px 50px 50px 0;
-  }
   

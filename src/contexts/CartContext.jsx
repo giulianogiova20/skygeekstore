@@ -15,8 +15,8 @@ const CustomProvider = ({ children }) => {
 
         if (isInCart(itemDetail)) {
                 const cartItemsMF = cartItems.map((cartItem)=>{
-                    if (cartItem.id === itemDetail.id) //Encuentra el item que ya estaba en el carrito
-                    { if (cartItem.stock>=itemQuantity) //Verifica que la cantidad que quiere agregar no supere el stock disponible
+                    if (cartItem.id === itemDetail.id) 
+                    { if (cartItem.stock>=itemQuantity) 
                         {
                             const cartItemMF = {
                                 name: cartItem.name,
@@ -27,7 +27,7 @@ const CustomProvider = ({ children }) => {
                                 stock: cartItem.stock - itemQuantity
                                 }
                                 setCartQuantity(cartQuantity + cartItemMF.qty)
-                                return cartItemMF //Devuelve el item con la cantidad modificada
+                                return cartItemMF 
                                 
                         } else {
                             swal({
@@ -42,10 +42,10 @@ const CustomProvider = ({ children }) => {
                                 qty: cartItem.qty,
                                 stock: cartItem.stock
                                 }
-                                return cartItemMF //Devuelve el item con la cantidad modificada
+                                return cartItemMF 
                         }
                     }
-                    else {return cartItem} //Devuelve el item sin modificar
+                    else {return cartItem} 
                 } 
                 )   
             setCartItems(cartItemsMF)
@@ -88,7 +88,7 @@ const CustomProvider = ({ children }) => {
         if (cartItems.length > 0){
             let quantity = 0
             cartItems.forEach(item => quantity = quantity + item.qty)
-            setCartQuantity(quantity) //Modifica la cantidad total de items en carrito
+            setCartQuantity(quantity) 
         } else {
             setCartQuantity(0)
         }

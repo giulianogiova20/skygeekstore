@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100;400&display=swap');
+
 .App {
   text-align: center;
 }
@@ -37,11 +39,12 @@
   }
 }
 
-.body--style{
-  background: linear-gradient(to bottom right, cyan, magenta);
-  -webkit-background-clip: text;
-  color: transparent; 
+body {
+  background-image: url("./img/background.jpg");
+  background-size: contain;
+  font-family: 'Prompt', sans-serif;
 }
+
 
 .text-magenta{
   color: rgb(245, 21, 245);

@@ -18,11 +18,7 @@ import Error from './components/Error'
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.css'
 
-function App() {
-
-  const greeting = "We are SKY, the number one geek store in Atlanta."
-  const userName = "John Doe"
-
+function App() { 
 
   return (
     <>
@@ -31,11 +27,11 @@ function App() {
           <Routes>
             <Route
               path='/'
-              element={<ItemListContainer greeting={greeting} userName={userName} />}
+              element={<ItemListContainer />}
             />
             <Route
               path='/category/:category'
-              element={<ItemListContainer greeting={greeting} userName={userName} />}
+              element={<ItemListContainer />}
             />
             <Route
               path='/item/:id'

@@ -13,18 +13,18 @@ const ItemDetail = ({itemDetail}) => {
     const { addItem, removeItem } = useContext(context)
 
     const onAdd = (counterItem) =>{
-        setCartHandler(true) //Aparece el boton "CHECKOUT"
+        setCartHandler(true) 
         swal({
         text: 'Added to Cart',
         icon: 'success'
         })
-        addItem(itemDetail, counterItem) //Envío al CartContext el item y la cantidad que tengo que agregar al carrito
+        addItem(itemDetail, counterItem) 
     }
 
 
     const deleteItem = () => {
-        removeItem(itemDetail.id) //El item se remueve del carrito
-        setCartHandler(false) //Desaparece el boton "DELETE FROM CART"
+        removeItem(itemDetail.id) 
+        setCartHandler(false) 
     }
 
     return (
