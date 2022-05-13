@@ -1,10 +1,12 @@
 import React, { useState , useContext} from "react";
+import { context } from "../contexts/CartContext";
 import ItemCount from "../components/ItemCount"
 import swal from 'sweetalert';
 import "../css/carddetail.css"
-import { context } from "../contexts/CartContext";
 import { Link } from "react-router-dom"
 import { Container, Row, Col } from 'react-bootstrap'
+import {IoBagRemove, IoBagHandle} from "react-icons/io5"
+
 
 
 const ItemDetail = ({itemDetail}) => {
@@ -31,7 +33,7 @@ const ItemDetail = ({itemDetail}) => {
     return (
         <>            
             <Container className="wrapper d-flex justify-content-center mt-4">
-                <Row className="outer d-flex align-items-center p-3">
+                <Row className="outer d-flex align-items-center p-3 mb-5">
                     <Col md={6} xs={12} className="d-flex justify-content-center">
                         <img src={itemDetail.img} className="card-detail-img" alt="Palpatine Figure" />
                     </Col> 
@@ -43,7 +45,7 @@ const ItemDetail = ({itemDetail}) => {
                                 <span className="card-detail-p my-2 text-center">PRICE: ${itemDetail.price}</span>
                             </Col>
                             <Col md={6} xs={12} className="d-flex align-items-center justify-content-center">
-                                <span className="free-sheeping my-1 d-flex align-items-center text-center">FREE SHEEPING WEEK</span>
+                                <span className="free-sheeping my-1 d-flex align-items-center text-center">FREE SHIPPING WEEK</span>
                             </Col>
                         </Row>
                         
@@ -52,10 +54,10 @@ const ItemDetail = ({itemDetail}) => {
                         CartHandler ? 
                         (<>
                         <ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>
-                        <Row >
-                            <Col md={7} xs={12} className="d-flex justify-content-center mt-3"><button className="box-button" onClick={deleteItem}>DELETE FROM CART</button></Col>
-                            <Col md={5} xs={12} className="d-flex justify-content-center mt-3">
-                                <Link to={`/cart`}><button className="box-button">CHECKOUT</button></Link>
+                        <Row>
+                            <Col md={7} xs={12} className="d-flex justify-content-center mt-3"><button className="box-button" onClick={deleteItem}><IoBagRemove size={20}/>DELETE FROM CART</button></Col>
+                            <Col md={5} xs={12} className="d-flex justify-content-center my-3">
+                                <Link to={`/cart`}><button className="box-button"><IoBagHandle size={20}/> CHECKOUT</button></Link>
                             </Col>
                         </Row>
                         </>

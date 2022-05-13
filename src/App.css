@@ -1,50 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100;400&display=swap');
 
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: app;
+  src: url(./font/TextMeOne-Regular.ttf);
 }
 
 body {
   background-image: url("./img/background.jpg");
   background-size: 100vw;
-  font-family: 'Prompt', sans-serif !important;
+  /* font-family: 'Prompt', sans-serif !important; */
+  font-family: app !important;
 }
 
+.bg-info{
+  background-color: rgb(245, 21, 245) !important;
+}
 
 .text-magenta{
   color: rgb(245, 21, 245);
@@ -64,4 +36,8 @@ color: #0ff;
 
 a {
   text-decoration: none !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid white;
 }

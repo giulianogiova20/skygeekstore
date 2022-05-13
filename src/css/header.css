@@ -1,44 +1,59 @@
+/* FONTS */
 @font-face {
     font-family: logo;
     src: url(../font/BUENAN__.ttf);
 }
+
+@font-face {
+    font-family: neon;
+    src: url(../font/clip.regular.ttf);
+}
+
+/* END FONTS */
 
 #logo{
 font-family: logo;
 font-size: 4rem;
 }
 
+#logo:hover{
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 42px #0ff,
+        0 0 82px #0ff,
+        0 0 92px #0ff;
+}
+
+
 .header a {
     color: white !important;
+    font-weight: bold;
 }
 
 .header a:hover {
-    color: magenta !important;
+    color: magenta !important; 
 }
 
 .header a:hover.active {
     color: magenta !important;
 }
 
+.header .dropdown-menu{
+    background-color: transparent;
+}
+
 .header .dropdown-menu a {
-    color: magenta !important;
+    color: white !important;
+    background-color: transparent;
+
 }
 
 .header .dropdown-menu a:hover {
     color: magenta !important;
+
 }
 
-.header .dropdown-menu a.active {
-    background-color: cyan !important;
-}
-
-.header .dropdown-menu a:hover {
-    background-color: rgb(0, 229, 255) !important;
-}
-
-.header .dropdown-menu a:focus {
-    background-color: rgb(0, 229, 255) !important;
-}
 
 .header .dropdown-menu a:hover.active {
     color: magenta !important;
@@ -48,20 +63,22 @@ font-size: 4rem;
     color: white;
 }
 
+.navbar-light .navbar-toggler{
+    color: white !important;
+    border-color: white !important;
+    background-color: white !important;
+}
+
+
 
 /* GREETING ANIMATION */
-
-@font-face {
-    font-family: neon;
-    src: url(../font/clip.regular.ttf);
-}
 
 .greeting{
     height: 100vh;
 }
 .greeting1 {
     color: #fff;
-    height: 40vh;
+    height: 30vh;
     text-shadow:
         0 0 7px #fff,
         0 0 10px #fff,
@@ -92,7 +109,6 @@ font-size: 4rem;
         animation: flicker2 1.5s infinite alternate; 
         font-family: neon; 
   }
-  
 
 /* Flickering animation */
 @keyframes flicker1 {
@@ -136,3 +152,6 @@ font-size: 4rem;
         text-shadow: none;
     }    
   }
+
+  /* END GREETING ANIMATION */
+

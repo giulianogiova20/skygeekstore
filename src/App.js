@@ -2,6 +2,8 @@ import React from "react";
 import {Routes, Route} from 'react-router-dom'
 import CustomProvider from "./contexts/CartContext";
 
+//Bootstrap
+import 'bootstrap/dist/css/bootstrap.css'
 
 //Styles
 import  "./App.css"
@@ -17,8 +19,7 @@ import Cart from './components/Cart'
 import Error from './components/Error'
 import Footer from './components/Footer'
 
-//Bootstrap
-import 'bootstrap/dist/css/bootstrap.css'
+
 
 function App() { 
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import swal from 'sweetalert';
 import {Row, Col, Container} from "react-bootstrap"
 
+import {IoAddCircleOutline, IoRemoveCircleOutline, IoBagAdd} from "react-icons/io5"
+
 
 const ItemCount = ({stock,price,onAdd}) =>{
 
@@ -62,12 +64,12 @@ const ItemCount = ({stock,price,onAdd}) =>{
                 <Container>
                     <Row className='card-detail-button d-flex justify-content-center'>
                         <Col xs={12} className="d-flex justify-content-center">
-                            <button className='box-button' onClick={onAddCart}>ADD TO CART</button>
+                            <button className='box-button' onClick={onAddCart}><IoBagAdd size={20}/> ADD TO CART</button>
                         </Col>
                         <Col xs={12} className="d-flex justify-content-center mt-2">
-                            <button className='box-button' onClick={itemRemove}>-</button>
+                            <button className='box-button' onClick={itemRemove}><IoRemoveCircleOutline size={20}/></button>
                             <button className='box-button'>{counterItem}</button>
-                            <button className='box-button' onClick={itemAdd}>+</button>
+                            <button className='box-button' onClick={itemAdd}><IoAddCircleOutline size={20}/></button>
                         </Col>
                     </Row>
                 </Container>
