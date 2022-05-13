@@ -6,6 +6,7 @@ import CustomProvider from "./contexts/CartContext";
 //Styles
 import  "./App.css"
 import "./css/header.css"
+import "./css/footer.css"
 
 
 //Components
@@ -14,6 +15,7 @@ import ItemDetailContainer from './containers/ItemDetailContainer';
 import NavBar from "./components/NavBar";
 import Cart from './components/Cart'
 import Error from './components/Error'
+import Footer from './components/Footer'
 
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.css'
@@ -46,6 +48,7 @@ function App() {
               element={<Error />}
             />
           </Routes>
+          <Footer/>
         </CustomProvider>
     </>
   )

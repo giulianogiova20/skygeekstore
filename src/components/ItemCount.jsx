@@ -60,20 +60,21 @@ const ItemCount = ({stock,price,onAdd}) =>{
             ?
             <>  
                 <Container>
-                    <Row className='card-detail-button'>
-                        <Col md={12} xs={6}>
-                            <button>${price}</button>
-                            <button onClick={onAddCart}>ADD TO CART</button>
-                            <button onClick={itemRemove}>-</button>
-                            <button>{counterItem}</button>
-                            <button onClick={itemAdd}>+</button>
+                    <Row className='card-detail-button d-flex justify-content-center'>
+                        <Col xs={12} className="d-flex justify-content-center">
+                            <button className='box-button' onClick={onAddCart}>ADD TO CART</button>
+                        </Col>
+                        <Col xs={12} className="d-flex justify-content-center mt-2">
+                            <button className='box-button' onClick={itemRemove}>-</button>
+                            <button className='box-button'>{counterItem}</button>
+                            <button className='box-button' onClick={itemAdd}>+</button>
                         </Col>
                     </Row>
                 </Container>
             </>
             :
             <div>
-                <span>No stock</span>
+                <span className='text-magenta'>No stock</span>
             </div>
             }         
             </>

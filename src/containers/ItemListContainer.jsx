@@ -78,8 +78,6 @@ const ItemListContainer = ({ greeting }) => {
             }
         }
 
-
-         
     }
 
     useEffect(() => {

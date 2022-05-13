@@ -1,67 +1,50 @@
 .cart-items {
-  color: #313149;
   padding: 10px;
-  display: inline-block;
-  margin: 75px 0;
-  position: relative;
-  z-index: 0;
-}
-.cart-items:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  padding: 5px;
-  border-radius: 15px;
-  
-  -webkit-mask: 
-     linear-gradient(#fff 0 0) content-box, 
-     linear-gradient(#fff 0 0);
-          mask: 
-     linear-gradient(#fff 0 0) content-box, 
-     linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
+  border: none !important;
 }
 
 .cart-item{
- border: 1px solid rgb(228, 228, 228);
- border-radius: 20px;
+  color: white;
 }
 
 .cart-item--img{
  width: 50px;
 }
 
-.cart-items--clear {
-  padding: 10px;
+.cart-item--remove{
+  background: transparent;
+  color: white;
+}
+
+
+.box-button--cart {
+  background: transparent;
+  position:relative;
+  vertical-align: middle;
+  color: white;
+  font-size: 13px;
   display: inline-block;
-  position: relative;
-  z-index: 0;
-  border: none;
-  background: none;
-}
-
-.cart-items--clear:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  padding: 5px;
-  border: none;
-  border-radius: 15px;
-  -webkit-mask: 
-     linear-gradient(#fff 0 0) content-box, 
-     linear-gradient(#fff 0 0);
-          mask: 
-     linear-gradient(#fff 0 0) content-box, 
-     linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-}
-
-.cart-items--clear p {
-  margin: 0;
-}
+  height: 50px;
+  text-align: center;
+  transition: 0.5s;
+  padding: 0 20px;
+  cursor: pointer;
+  -webkit-transition:0.5s;
+  border: 2px solid white;
+  border-radius: 20px;
+  box-shadow: 
+  inset 0 0 5px #fff , 0 0 5px #fff,
+  inset 0 0 15px magenta, 0 0 15px magenta;
+  }
+  
+  .box-button--cart:hover {
+    border: 2px solid white;
+    border-radius: 20px;
+    color: #FFF;
+    transform: scale(1.02);
+    transition: 0.5s;
+    box-shadow: 
+  inset 0 0 2px #fff , 0 0 2px #fff,
+  inset 0 0 10px #0ff , 0 0 10px #0ff;
+   
+  }

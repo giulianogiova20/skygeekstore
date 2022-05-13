@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import "../css/carddetail.css"
 import { context } from "../contexts/CartContext";
 import { Link } from "react-router-dom"
-
+import { Container, Row, Col } from 'react-bootstrap'
 
 
 const ItemDetail = ({itemDetail}) => {
@@ -16,7 +16,8 @@ const ItemDetail = ({itemDetail}) => {
         setCartHandler(true) 
         swal({
         text: 'Added to Cart',
-        icon: 'success'
+        icon: 'success',
+        background: 'green'
         })
         addItem(itemDetail, counterItem) 
     }
@@ -29,26 +30,41 @@ const ItemDetail = ({itemDetail}) => {
 
     return (
         <>            
-            <div className="wrapper d-flex justify-content-center mt-4">
-                <div className="outer">
-                    <div className="card-detail-content animated fadeInLeft">
+            <Container className="wrapper d-flex justify-content-center mt-4">
+                <Row className="outer d-flex align-items-center p-3">
+                    <Col md={6} xs={12} className="d-flex justify-content-center">
+                        <img src={itemDetail.img} className="card-detail-img" alt="Palpatine Figure" />
+                    </Col> 
+                    <Col md={6} xs={12} className="flex-column d-flex align-items-center justify-content-center card-detail-content">
                         <h1 className="card-detail-h1">{itemDetail.name}</h1>
-                        <span className="bg animated fadeInDown card-detail-p">stock: {itemDetail.stock}</span>
-                        <p className="card-detail-p">{itemDetail.description}</p>
+                        <Row>
+                            <Col md={6} xs={12} className="d-flex flex-column">
+                                <span className="card-detail-p my-2 text-center">STOCK: {itemDetail.stock}</span>
+                                <span className="card-detail-p my-2 text-center">PRICE: ${itemDetail.price}</span>
+                            </Col>
+                            <Col md={6} xs={12} className="d-flex align-items-center justify-content-center">
+                                <span className="free-sheeping my-1 d-flex align-items-center text-center">FREE SHEEPING WEEK</span>
+                            </Col>
+                        </Row>
+                        
+                        <p className="card-detail-p my-4">{itemDetail.description}</p>
                         { 
                         CartHandler ? 
                         (<>
                         <ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>
-                        <Link to={`/cart`}><button className="card-detail-buy">CHECKOUT</button></Link>
-                        <button className="card-detail-buy mt-3" onClick={deleteItem}>DELETE FROM CART</button>
+                        <Row >
+                            <Col md={7} xs={12} className="d-flex justify-content-center mt-3"><button className="box-button" onClick={deleteItem}>DELETE FROM CART</button></Col>
+                            <Col md={5} xs={12} className="d-flex justify-content-center mt-3">
+                                <Link to={`/cart`}><button className="box-button">CHECKOUT</button></Link>
+                            </Col>
+                        </Row>
                         </>
                         ) 
                             : (<ItemCount stock={itemDetail.stock} price={itemDetail.price} onAdd={onAdd}/>) 
                         }
-                    </div>
-                    <img src={itemDetail.img} className="card-detail-img" alt="Palpatine Figure" /> 
-                </div>
-            </div>             
+                    </Col>
+                </Row>
+            </Container>             
         </>
     )
 

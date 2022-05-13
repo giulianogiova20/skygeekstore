@@ -41,8 +41,8 @@
 
 body {
   background-image: url("./img/background.jpg");
-  background-size: contain;
-  font-family: 'Prompt', sans-serif;
+  background-size: 100vw;
+  font-family: 'Prompt', sans-serif !important;
 }
 
 
@@ -50,7 +50,18 @@ body {
   color: rgb(245, 21, 245);
 }
 
+.text-cyan{
+  color: #0ff !important;
+}
+
 .color-magenta{
   color: rgb(245, 21, 245);
 }
 
+.loader{
+color: #0ff;
+}
+
+a {
+  text-decoration: none !important;
+}

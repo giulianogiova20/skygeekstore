@@ -20,21 +20,21 @@ const NavBar = () => {
                 <Container >
                     <Navbar expand="lg">
                             <Navbar.Brand as={NavLink} to="/">
-                                        <h1>SKY Store</h1>
+                                        <h1 id="logo">SKY Store</h1>
                             </Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav" className="flex-row justify-content-end">
                                     <Nav>
-                                        <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-                                        <NavDropdown title="Categories" id="basic-nav-dropdown">
+                                        <Nav.Link as={NavLink} to="/" className="nav-link"><span>Home</span></Nav.Link>
+                                        <NavDropdown title="Categories" id="basic-nav-dropdown"><span>
                                             {categories.map((element) => {
                                                 return (
-                                                    <NavDropdown.Item as={NavLink} key={element.id} to={element.route}>{element.name}</NavDropdown.Item>
+                                                    <NavDropdown.Item as={NavLink} key={element.id} to={element.route} className="nav-link"><span>{element.name}</span></NavDropdown.Item>
                                                 )
-                                            })}
+                                            })}</span>
                                         </NavDropdown>
-                                        <Nav.Link as={NavLink} to="/">About</Nav.Link>
-                                        <Nav.Link as={NavLink} to="/cart">
+                                        <Nav.Link as={NavLink} to="/" className="nav-link">John Doe</Nav.Link>
+                                        <Nav.Link as={NavLink} to="/cart" className="nav-link">
                                             <CartWidget cartQuantity = {cartQuantity}/>
                                             
                                         </Nav.Link>

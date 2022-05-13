@@ -13,9 +13,9 @@ const Item = ({item}) => {
             <Card.Body>
                 <Row className='d-flex justify-content-center text-light fs-4 py-2'>{item.name}</Row>
                 <Row className='d-flex justify-content-center text-light'>
-                    <Col className='d-flex justify-content-center card-button'>
-                            <button disabled className="m-2">$ {item.price}</button>
-                            <Link key={item.id} to={`/item/${item.id}`}><button className="m-2">Details</button></Link>               
+                    <Col className='d-flex justify-content-center'>
+                            <button disabled className="m-2  box-button btn-animation">$ {item.price}</button>
+                            <Link key={item.id} to={`/item/${item.id}`}><button className="m-2  box-button btn-animation">Details</button></Link>               
                     </Col>
                 </Row>
             </Card.Body>

@@ -6,7 +6,7 @@ const CartWidget = ({cartQuantity}) => {
     return (
         <>
         <IoCartOutline/>
-        { cartQuantity !== 0 ? (<Badge pill bg="dark">{cartQuantity}</Badge>) : null }
+        { cartQuantity !== 0 ? (<Badge pill bg="info">{cartQuantity}</Badge>) : null }
         </>
     )
 }
