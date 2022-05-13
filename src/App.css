@@ -8,6 +8,8 @@
 }
 
 body {
+  position: relative !important;
+  min-height: 100vh;
   background-image: url("./img/background.jpg");
   background-size: 100vw;
   /* font-family: 'Prompt', sans-serif !important; */
