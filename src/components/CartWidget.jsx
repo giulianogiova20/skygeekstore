@@ -5,7 +5,7 @@ import { Badge} from 'react-bootstrap'
 const CartWidget = ({cartQuantity}) => {
     return (
         <>
-        <IoCartOutline/>
+        <IoCartOutline size={35}/>
         { cartQuantity !== 0 ? (<Badge pill bg="info">{cartQuantity}</Badge>) : null }
         </>
     )

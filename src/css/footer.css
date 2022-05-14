@@ -1,7 +1,6 @@
 .footer{
     color: #f1f1f1;
     font-weight: bold;
-    background-color: black;
     width: 100vw;
     position: absolute;
     bottom: 0;
@@ -11,4 +10,8 @@
 
 .footer p {
     margin:0;
+}
+
+.footer a:hover{
+    color: magenta !important;
 }

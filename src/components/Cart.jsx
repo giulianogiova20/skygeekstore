@@ -80,7 +80,9 @@ const Cart = () => {
                         <Col xs={10} className="d-flex justify-content-center">
                             <h1 className="text-magenta">NO ITEMS IN CART</h1>
                         </Col>
-                        <Link to={`/`} className="d-flex justify-content-center"><button className="mt-3 box-button text-cyan"><h2>Go shopping</h2></button></Link>
+                        <Link to={`/`} className="d-flex justify-content-center">
+                            <button className="mt-3 box-button text-cyan"><h2><IoBagHandle size={20}/> Go shopping</h2></button>
+                        </Link>
                     </Row>
                 </Container>
         )

@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
         finally {
             setTimeout(() => {
                 setLoading(false)
-              }, 700)
+              }, 1500)
         }
     }
 

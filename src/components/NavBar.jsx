@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import CartWidget from './CartWidget'
-import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Container, Offcanvas, Col } from 'react-bootstrap'
 import { NavLink} from "react-router-dom";
 import { context } from "../contexts/CartContext";
 import { FaUserCircle } from "react-icons/fa"
@@ -15,34 +15,63 @@ const NavBar = () => {
         { name: "Shirts", route: "category/shirt", id: 3 }
     ]
 
+    const NavLinks = () =>{
+        return(
+            <>
+                <Nav.Link as={NavLink} to="/" className="nav-link"><span>Home</span></Nav.Link>
+                <NavDropdown title="Categories"><span>
+                    {categories.map((element) => {
+                        return (
+                            <NavDropdown.Item as={NavLink} key={element.id} to={element.route} className="nav-link"><span>{element.name}</span></NavDropdown.Item>
+                        )
+                    })}</span>
+                </NavDropdown>
+                <Nav.Link className="nav-link align-items-center"><FaUserCircle/> John Doe</Nav.Link>
+
+            </>
+        )
+    }
+
     return (
         
             <div className="header container-xxl">
                <Container>
-                    <Navbar collapseOnSelect expand="md">
+               <Navbar key="md"  expand="md" className="mb-3">
+                    <Container>
+                        <Col>
+                            <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
+                            <Nav className="d-none d-md-inline">
+                                <NavLinks/>
+                            </Nav>
+                            
+                            <Navbar.Offcanvas
+                            id="offcanvasNavbarLabel-expand-md"
+                            aria-labelledby="offcanvasNavbarLabel-expand-md"
+                            placement="end"
+                            >
+                            <Offcanvas.Header closeButton>
+                                <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
+                                SKY GEEK STORE
+                                </Offcanvas.Title>
+                            </Offcanvas.Header>
+                            <Offcanvas.Body>
+                            <Nav>
+                                <NavLinks/>
+                            </Nav>
+                            </Offcanvas.Body>
+                            </Navbar.Offcanvas>
+                        </Col>
+                        <Col className="d-flex justify-content-center">
                             <Navbar.Brand as={NavLink} to="/">
-                                        <h1 id="logo">SKY Store</h1>
+                                            <h1 id="logo">SKY Store</h1>
                             </Navbar.Brand>
-                            <Nav.Link as={NavLink} to="/cart" className="nav-link d-md-none">
+                        </Col>
+                        <Col className="d-flex justify-content-end">
+                            <Nav.Link as={NavLink} to="/cart" className="nav-link ">
                                 <CartWidget cartQuantity = {cartQuantity}/>
                             </Nav.Link>
-                            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-                                <Navbar.Collapse id="responsive-navbar-nav" className="flex-row justify-content-end" >
-                                    <Nav>
-                                        <Nav.Link as={NavLink} to="/" className="nav-link d-flex justify-content-end"><span>Home</span></Nav.Link>
-                                        <NavDropdown title="Categories"  className="d-flex justify-content-end"><span>
-                                            {categories.map((element) => {
-                                                return (
-                                                    <NavDropdown.Item as={NavLink} key={element.id} to={element.route} className="nav-link d-flex justify-content-end"><span>{element.name}</span></NavDropdown.Item>
-                                                )
-                                            })}</span>
-                                        </NavDropdown>
-                                        <Nav.Link as={NavLink} to="/" className="nav-link d-flex justify-content-end align-items-center"><FaUserCircle/> John Doe</Nav.Link>
-                                        <Nav.Link as={NavLink} to="/cart" className="nav-link d-none d-md-block">
-                                            <CartWidget cartQuantity = {cartQuantity}/>
-                                        </Nav.Link>
-                                    </Nav>
-                                </Navbar.Collapse>
+                        </Col>
+                    </Container>
                     </Navbar>
                 </Container>
             </div>

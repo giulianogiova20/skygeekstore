@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
 import {Row, Col, Container} from "react-bootstrap"
+import { Link } from "react-router-dom"
+import {IoAddCircleOutline, IoRemoveCircleOutline, IoBagAdd, IoBagHandle} from "react-icons/io5"
 
-import {IoAddCircleOutline, IoRemoveCircleOutline, IoBagAdd} from "react-icons/io5"
 
-
-const ItemCount = ({stock,price,onAdd}) =>{
+const ItemCount = ({stock,onAdd}) =>{
 
     const [counterItem, setCounterItem] = useState(1);
        
@@ -75,9 +75,18 @@ const ItemCount = ({stock,price,onAdd}) =>{
                 </Container>
             </>
             :
-            <div>
-                <span className='text-magenta'>No stock</span>
-            </div>
+            <Container>
+                <Row>
+                    <Col xs={12} className="d-flex justify-content-center">
+                        <span className='text-magenta'>No stock </span>
+                        </Col>
+                    <Col xs={12} className="d-flex justify-content-center mt-2">
+                        <Link to={`/`}><button className="box-button">
+                            <IoBagHandle size={20}/>View More Products</button>
+                        </Link>
+                    </Col>
+                </Row>
+            </Container>
             }         
             </>
 

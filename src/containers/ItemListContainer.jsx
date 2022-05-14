@@ -44,7 +44,7 @@ const ItemListContainer = ({ greeting }) => {
             finally {
                 setTimeout(() => {
                     setLoading(false)
-                  }, 1000)
+                  }, 1500)
             }
         }
 
@@ -74,7 +74,7 @@ const ItemListContainer = ({ greeting }) => {
             finally {
                 setTimeout(() => {
                     setLoading(false)
-                  }, 1000)
+                  }, 1500)
             }
         }
 

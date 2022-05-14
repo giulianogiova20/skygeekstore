@@ -18,11 +18,9 @@ font-size: 4rem;
 
 #logo:hover{
     text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px #0ff,
-        0 0 82px #0ff,
-        0 0 92px #0ff;
+        0 0 5px #fff,
+        0 0 5px #0ff,
+        0 0 30px #0ff;
 }
 
 
@@ -40,13 +38,18 @@ font-size: 4rem;
 }
 
 .header .dropdown-menu{
-    background-color: transparent;
+    background-color: black;
+    width: 50% !important;
 }
+
+.header .dropdown-item{
+    max-width: fit-content !important;
+}
+
 
 .header .dropdown-menu a {
     color: white !important;
     background-color: transparent;
-
 }
 
 .header .dropdown-menu a:hover {
@@ -70,6 +73,36 @@ font-size: 4rem;
 }
 
 
+.offcanvas, .dropdown, .dropdown-menu{
+    background-color: black;
+}
+
+.offcanvas a{
+    color: magenta;
+}
+
+.offcanvas .dropdown a{
+    color: magenta;
+}
+
+.offcanvas .dropdown a:hover{
+    color: white;
+    background-color: transparent;
+}
+
+.offcanvas a:hover{
+    color: white;
+}
+
+.offcanvas-header{
+    color: white;
+}
+
+.offcanvas button{
+    color: white;
+    background-color: white;
+}
+
 
 /* GREETING ANIMATION */
 
@@ -82,20 +115,21 @@ font-size: 4rem;
     text-shadow:
         0 0 7px #fff,
         0 0 10px #fff,
-        0 0 21px #fff,
+        0 0 10px #0ff,
         0 0 42px #0ff,
         0 0 82px #0ff,
         0 0 92px #0ff,
         0 0 102px #0ff,
         0 0 151px #0ff;
-        font-size:8rem !important;
+/*         text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 55px #0ff, 0 0 75px #0ff, 2px 2px 2px rgba(64,255,236,0);
+ */        font-size:7rem !important;
         animation: flicker1 1.5s infinite alternate; 
         font-family: neon; 
   }
 
   .greeting2 {
     color: #fff;
-    height: 40vh;
+    height: 30vh;
     text-shadow:
         0 0 7px #fff,
         0 0 10px #fff,
@@ -105,7 +139,7 @@ font-size: 4rem;
         0 0 92px magenta,
         0 0 102px magenta,
         0 0 151px magenta;
-        font-size: 8rem !important;
+        font-size: 7rem !important;
         animation: flicker2 1.5s infinite alternate; 
         font-family: neon; 
   }

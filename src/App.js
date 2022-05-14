@@ -6,10 +6,9 @@ import CustomProvider from "./contexts/CartContext";
 import 'bootstrap/dist/css/bootstrap.css'
 
 //Styles
-import  "./App.css"
+import "./App.css"
 import "./css/header.css"
 import "./css/footer.css"
-
 
 //Components
 import ItemListContainer from "./containers/ItemListContainer"
