@@ -10,9 +10,9 @@ const NavBar = () => {
     const { cartQuantity } = useContext(context)
 
     const categories = [
-        { name: "Figures", route: "category/figure", id: 1 },
-        { name: "Cups", route: "category/cup", id: 2 },
-        { name: "Shirts", route: "category/shirt", id: 3 }
+        { name: "Figures", route: "category/figures", id: 1 },
+        { name: "Cups", route: "category/cups", id: 2 },
+        { name: "Shirts", route: "category/shirts", id: 3 }
     ]
 
     const NavLinks = () =>{
