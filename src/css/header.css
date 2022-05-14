@@ -33,9 +33,6 @@ font-size: 4rem;
     color: magenta !important; 
 }
 
-.header a:hover.active {
-    color: magenta !important;
-}
 
 .header .dropdown-menu{
     background-color: black;
@@ -54,12 +51,28 @@ font-size: 4rem;
 
 .header .dropdown-menu a:hover {
     color: magenta !important;
-
 }
 
+.header .dropdown-menu a.active {
+    color: #0ff !important;
+}
 
-.header .dropdown-menu a:hover.active {
+.header .dropdown-menu a.active:hover {
     color: magenta !important;
+}
+
+.header .dropdown-menu {
+    color: magenta !important;
+}
+
+.dropdown-item.active{
+    color: #0ff !important;
+    background-color: transparent !important;
+}
+
+.dropdown-item.active:hover{
+    color: white !important;
+    background-color: transparent !important;
 }
 
 .header h1 {
