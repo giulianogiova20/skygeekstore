@@ -29,6 +29,8 @@ It simulates a geek store, user can find Shirts, Cups or Figures. The user can s
 #
 Developed by <b>Giuliano Giovanelli</b>. [Ir a Github](https://github.com/giulianogiova20/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/642dd175-2686-4fe5-94be-dd72ef1d6b06/deploy-status)](https://app.netlify.com/sites/skygeekstore-gg/deploys) [Ir al sitio](skygeekstore-gg.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/642dd175-2686-4fe5-94be-dd72ef1d6b06/deploy-status)](https://app.netlify.com/sites/skygeekstore-gg/deploys)
+
+[Ir al sitio](https://skygeekstore-gg.netlify.app/)
  
 
