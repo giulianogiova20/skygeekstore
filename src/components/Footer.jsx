@@ -5,8 +5,8 @@ import {FaGithub} from "react-icons/fa"
 const Footer = () => {
     return (
         <>
-            <div className="py-5">
-                <Container className="footer">
+            <div className="py-5 mb-4">
+                <Container className="footer ">
                     <Row>
                         <Col md={4} sm={12}>
                             <p className="text-light text-center text-md-start">React-Bootstrap Design</p>

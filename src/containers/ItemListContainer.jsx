@@ -2,6 +2,7 @@ import React, { useEffect, useState} from "react";
 import ItemList from "../containers/ItemList";
 import Loader from "../components/Loader"
 import { Container, Row, Col } from 'react-bootstrap'
+import swal from "sweetalert"
 import { useParams } from "react-router-dom"
 import { db } from "../firebase/firebase"
 import { collection, getDocs, query, where } from "firebase/firestore"
@@ -35,7 +36,11 @@ const ItemListContainer = () => {
                         })
                         setProducts(lista)
                     } 
-                    else { console.log("No products")}
+                    else { 
+                        swal({
+                        text: 'No products in the selected category',
+                        icon: 'error',
+                        })}
             })
             } 
             catch {
@@ -64,7 +69,11 @@ const ItemListContainer = () => {
                         })
                         setProducts(lista)
                     } 
-                    else { console.log("No products")}
+                    else {  
+                        swal({
+                        text: 'No products',
+                        icon: 'error',
+                        })}
           
             })
             } 

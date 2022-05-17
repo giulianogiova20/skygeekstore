@@ -19,7 +19,6 @@ const ItemDetail = ({itemDetail}) => {
         swal({
         text: 'Added to Cart',
         icon: 'success',
-        background: 'green'
         })
         addItem(itemDetail, counterItem) 
     }
