@@ -40,7 +40,7 @@ font-size: 4rem;
 }
 
 .header .dropdown-item{
-    max-width: fit-content !important;
+    max-width: fit-content !important; 
 }
 
 
@@ -85,8 +85,11 @@ font-size: 4rem;
     background-color: white !important;
 }
 
+.offcanvas{
+    background-color: black;
+}
 
-.offcanvas, .dropdown, .dropdown-menu{
+.offcanvas .dropdown, .dropdown-menu{
     background-color: black;
 }
 
@@ -115,7 +118,6 @@ font-size: 4rem;
     color: white;
     background-color: white;
 }
-
 
 /* GREETING ANIMATION */
 

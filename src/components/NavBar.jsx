@@ -33,7 +33,6 @@ const NavBar = () => {
     }
 
     return (
-        
             <div className="header container-xxl">
                <Container>
                <Navbar key="md"  expand="md" className="mb-3">
